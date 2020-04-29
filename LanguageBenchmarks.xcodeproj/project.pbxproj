@@ -13,6 +13,8 @@
 		331D3D582459144000687CF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331D3D562459144000687CF8 /* Main.storyboard */; };
 		331D3D5A2459144200687CF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 331D3D592459144200687CF8 /* Assets.xcassets */; };
 		331D3D5D2459144200687CF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331D3D5B2459144200687CF8 /* LaunchScreen.storyboard */; };
+		331D3D652459147900687CF8 /* SwiftyBenches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331D3D642459147900687CF8 /* SwiftyBenches.swift */; };
+		331D3D6B245914A300687CF8 /* ObbyBenches.m in Sources */ = {isa = PBXBuildFile; fileRef = 331D3D6A245914A300687CF8 /* ObbyBenches.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,10 @@
 		331D3D592459144200687CF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		331D3D5C2459144200687CF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		331D3D5E2459144200687CF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		331D3D642459147900687CF8 /* SwiftyBenches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBenches.swift; sourceTree = "<group>"; };
+		331D3D68245914A300687CF8 /* LanguageBenchmarks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LanguageBenchmarks-Bridging-Header.h"; sourceTree = "<group>"; };
+		331D3D69245914A300687CF8 /* ObbyBenches.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObbyBenches.h; sourceTree = "<group>"; };
+		331D3D6A245914A300687CF8 /* ObbyBenches.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObbyBenches.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +69,20 @@
 				331D3D592459144200687CF8 /* Assets.xcassets */,
 				331D3D5B2459144200687CF8 /* LaunchScreen.storyboard */,
 				331D3D5E2459144200687CF8 /* Info.plist */,
+				331D3D6C245916CC00687CF8 /* Benches */,
+				331D3D68245914A300687CF8 /* LanguageBenchmarks-Bridging-Header.h */,
 			);
 			path = LanguageBenchmarks;
+			sourceTree = "<group>";
+		};
+		331D3D6C245916CC00687CF8 /* Benches */ = {
+			isa = PBXGroup;
+			children = (
+				331D3D642459147900687CF8 /* SwiftyBenches.swift */,
+				331D3D69245914A300687CF8 /* ObbyBenches.h */,
+				331D3D6A245914A300687CF8 /* ObbyBenches.m */,
+			);
+			path = Benches;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +117,7 @@
 				TargetAttributes = {
 					331D3D4C2459144000687CF8 = {
 						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -138,8 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				331D3D652459147900687CF8 /* SwiftyBenches.swift in Sources */,
 				331D3D552459144000687CF8 /* ViewController.swift in Sources */,
 				331D3D512459144000687CF8 /* AppDelegate.swift in Sources */,
+				331D3D6B245914A300687CF8 /* ObbyBenches.m in Sources */,
 				331D3D532459144000687CF8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +305,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5UZAT7KA9;
 				INFOPLIST_FILE = LanguageBenchmarks/Info.plist;
@@ -293,6 +315,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.redeggproductions.LanguageBenchmarks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LanguageBenchmarks/LanguageBenchmarks-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,6 +326,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L5UZAT7KA9;
 				INFOPLIST_FILE = LanguageBenchmarks/Info.plist;
@@ -311,6 +336,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.redeggproductions.LanguageBenchmarks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LanguageBenchmarks/LanguageBenchmarks-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
