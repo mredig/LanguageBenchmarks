@@ -39,6 +39,12 @@ class ViewController: UIViewController {
 		textView.text = textView.text + "\n\(title) (ObjC): \(humanDuration) seconds."
 	}
 
+	func benchmarkC(titled title: String, iterations: Int, benchmark: @escaping (Int) -> Void) {
+		let duration = objcBenches.benchmark(withIterations: iterations, benchmark: benchmark)
+		let humanDuration = formatter.string(from: duration as NSNumber) ?? "\(duration)"
+		textView.text = textView.text + "\n\(title) (C): \(humanDuration) seconds."
+	}
+
 	@IBAction func swiftFibPressed(_ sender: UIButton) {
 		benchmarkSwift(titled: "Fib No Cache", iterations: 1) { _ in
 			let _ = swiftBenches.fibSequence(nthValue: 40)
@@ -47,7 +53,7 @@ class ViewController: UIViewController {
 
 	@IBAction func swiftFibCachePressed(_ sender: UIButton) {
 		var storage = [UInt64].init(repeating: 0, count: 1000)
-		benchmarkSwift(titled: "Fib With Cache", iterations: 1) { iteration in
+		benchmarkSwift(titled: "Fib With Cache", iterations: 1000) { iteration in
 			let value = swiftBenches.fibSequenceWithCache(nthValue: 93)
 			storage[iteration] = value
 		}
@@ -63,6 +69,20 @@ class ViewController: UIViewController {
 		var storage = [UInt64].init(repeating: 0, count: 1000)
 		benchmarkObjectiveC(titled: "Fib With Cache", iterations: 1000) { iteration in
 			let value = self.objcBenches.fibSequenceNthValue(93, withCache: nil)
+			storage[iteration] = value
+		}
+	}
+
+	@IBAction func cFibPressed(_ sender: UIButton) {
+		benchmarkC(titled: "Fib No Cache", iterations: 1) { iteration in
+			let _ = fibSequenceNthValue(40)
+		}
+	}
+
+	@IBAction func cFibCachePressed(_ sender: UIButton) {
+		var storage = [UInt64].init(repeating: 0, count: 1000)
+		benchmarkC(titled: "Fib With Cache", iterations: 1000) { iteration in
+			let value = fibSequenceNthValueCache(93)
 			storage[iteration] = value
 		}
 	}
