@@ -16,6 +16,16 @@
 	return self;
 }
 
+- (CFAbsoluteTime)benchmarkWithIterations:(NSInteger)iterations benchmark:(void (^)(NSInteger))benchmark {
+	CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+	for (NSUInteger i = 0; i < iterations; i++) {
+		benchmark(i);
+	}
+	CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();
+	CFAbsoluteTime total = endTime - startTime;
+	return total;
+}
+
 - (uint64_t)fibSequenceNthValue:(NSInteger)nth {
 	if (nth <= 0) {
 		return 0;

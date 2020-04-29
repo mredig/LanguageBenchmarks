@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(uint64_t)fibSequenceNthValue:(NSInteger)nth;
 -(uint64_t)fibSequenceNthValue:(NSInteger)nth withCache:(NSMutableArray * _Nullable)cache;
 
+- (CFAbsoluteTime)benchmarkWithIterations:(NSInteger)iterations benchmark:(void (^)(NSInteger))benchmark;
+
 @end
 
 NS_ASSUME_NONNULL_END
